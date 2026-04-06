@@ -1,28 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>3D Viewer Test</title>
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-  <style>
-    body { margin: 0; background-color: #f0f0f0; }
-    model-viewer {
-      width: 100vw;
-      height: 100vh;
-      background-color: #ffffff;
-      border: 5px solid red; /* This helps you see if the viewer is actually there */
-    }
-  </style>
-</head>
 <body>
-
   <model-viewer 
-    src="3DDEM.glb" 
-    ar 
-    camera-controls 
+    src="model.glb" 
+    alt="3D Model"
     auto-rotate 
-    shadow-intensity="1">
+    camera-controls
+    shadow-intensity="1"
+    
+    bounds="tight" 
+    enable-pan
+    camera-orbit="auto auto auto" 
+    min-camera-orbit="auto auto auto"
+    max-camera-orbit="auto auto auto"
+    field-of-view="auto"
+    
+    style="width: 100vw; height: 100vh;"
+  >
   </model-viewer>
-
 </body>
-</html>
