@@ -1,19 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Model Viewer</title>
+
+  <!-- Model Viewer -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #0b0b0b;
+      font-family: Arial, sans-serif;
+    }
+
+    model-viewer {
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at center, #1a1a1a, #000);
+    }
+
+    .loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #ffffff;
+      font-size: 14px;
+      letter-spacing: 1px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+
 <body>
-  <model-viewer 
-    src="model.glb" 
+
+  <div class="loading" id="loader">Loading 3D Model...</div>
+
+  <model-viewer
+    src="https://github.com/infovichitraco-dev/3d-model-viewer/raw/refs/heads/main/model.glb"
     alt="3D Model"
-    auto-rotate 
+
+    auto-rotate
+    auto-rotate-delay="0"
+    rotation-per-second="18deg"
+
     camera-controls
+    camera-orbit="0deg 75deg 60%"
+    min-camera-orbit="auto auto 30%"
+    max-camera-orbit="auto auto 140%"
+
+    field-of-view="30deg"
+    camera-target="0m 0m 0m"
+
+    exposure="1.25"
     shadow-intensity="1"
-    
-    bounds="tight" 
-    enable-pan
-    camera-orbit="auto auto auto" 
-    min-camera-orbit="auto auto auto"
-    max-camera-orbit="auto auto auto"
-    field-of-view="auto"
-    
-    style="width: 100vw; height: 100vh;"
-  >
+
+    environment-image="neutral"
+    skybox-image="neutral"
+
+    scale="2.5 2.5 2.5"
+
+    interaction-prompt="none"
+
+    onload="document.getElementById('loader').style.display='none'">
   </model-viewer>
+
 </body>
+</html>
