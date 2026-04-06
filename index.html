@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3D Model Viewer</title>
 
-  <!-- Model Viewer -->
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
   <style>
@@ -13,7 +12,6 @@
       margin: 0;
       overflow: hidden;
       background: #0b0b0b;
-      font-family: Arial, sans-serif;
     }
 
     model-viewer {
@@ -27,10 +25,9 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: #ffffff;
+      color: #fff;
       font-size: 14px;
-      letter-spacing: 1px;
-      opacity: 0.6;
+      opacity: 0.7;
     }
   </style>
 </head>
@@ -40,32 +37,26 @@
   <div class="loading" id="loader">Loading 3D Model...</div>
 
   <model-viewer
-    src="https://github.com/infovichitraco-dev/3d-model-viewer/raw/refs/heads/main/model.glb"
+    src="https://raw.githubusercontent.com/infovichitraco-dev/3d-model-viewer/main/model.glb"
     alt="3D Model"
 
     auto-rotate
-    auto-rotate-delay="0"
-    rotation-per-second="18deg"
-
     camera-controls
+
     camera-orbit="0deg 75deg 60%"
-    min-camera-orbit="auto auto 30%"
-    max-camera-orbit="auto auto 140%"
-
     field-of-view="30deg"
-    camera-target="0m 0m 0m"
 
-    exposure="1.25"
+    exposure="1.2"
     shadow-intensity="1"
 
     environment-image="neutral"
-    skybox-image="neutral"
 
     scale="2.5 2.5 2.5"
 
-    interaction-prompt="none"
+    onload="document.getElementById('loader').style.display='none'"
 
-    onload="document.getElementById('loader').style.display='none'">
+    onerror="document.getElementById('loader').innerText='Failed to load model'"
+  >
   </model-viewer>
 
 </body>
